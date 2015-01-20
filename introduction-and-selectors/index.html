@@ -11,7 +11,11 @@ description: A brief introduction to CSS and an in-depth look at composing CSS s
 
 <section>
   <section>
-    <p>CSS is in charge of all the visual styling of an HTML page.</p>
+    <p>CSS is in charge of all the visual styling of an HTML document.</p>
+    <aside class="notes">
+      CSS stands for Cascading Style Sheets.
+      We'll talk about the "cascading" part of "CSS" next week.
+    </aside>
   </section>
   <section>
     <p>It works by "targeting" specific HTML elements and applying styles to those elements.</p>
@@ -24,10 +28,9 @@ description: A brief introduction to CSS and an in-depth look at composing CSS s
 <section>
   <h2>Anatomy of CSS</h2>
   <pre><code data-trim>
-/* This is called a selector: */
-p {
+p { /* &lt;== This is called a selector. */
 
-  /* The declaration block is made up of property: value pairs: */
+  /* The declaration block is made up of property-value pairs. */
   color: red;
 
 }
