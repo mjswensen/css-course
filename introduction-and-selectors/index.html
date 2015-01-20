@@ -1,0 +1,224 @@
+---
+layout: presentation
+theme: accent1
+---
+
+<section>
+  <h1>Introduction and Selectors</h1>
+</section>
+
+<section>
+  <section>
+    <p>CSS is in charge of all the visual styling of an HTML page.</p>
+  </section>
+  <section>
+    <p>It works by "targeting" specific HTML elements and applying styles to those elements.</p>
+  </section>
+  <section>
+    <p>This "targeting" is achieved by <code>selectors</code>, and we'll see how those work today.</p>
+  </section>
+</section>
+
+<section>
+  <h2>Anatomy of CSS</h2>
+  <pre><code data-trim>
+/* This is called a selector: */
+p {
+
+  /* The declaration block is made up of property: value pairs: */
+  color: red;
+
+}
+  </code></pre>
+  <p>The whole thing is called a <em>rule</em>.</p>
+</section>
+
+<section>
+  <section>
+    <h2>Selectors</h2>
+    <small>(<a href="http://www.w3.org/TR/selectors/">W3C Specification</a>)</small>
+  </section>
+  <section>
+    <h3>Basic selectors</h3>
+    <table class="small">
+      <thead>
+        <tr>
+          <th>Selector type</th>
+          <th>CSS</th>
+          <th>English version</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Type</td>
+          <td><code>p</code></td>
+          <td>All paragraphs</td>
+        </tr>
+        <tr>
+          <td>Class</td>
+          <td><code>.warning</code></td>
+          <td>Elements that have <code>warning</code> class</td>
+        </tr>
+        <tr>
+          <td>ID</td>
+          <td><code>#title</code></td>
+          <td>Element that has ID of <code>title</code></td>
+        </tr>
+      </tbody>
+    </table>
+    <aside class="notes">
+      Best practice: stick with classes for styling (we will get more into specificity next week). IDs are great for JS and Selenium, but not for CSS.
+    </aside>
+  </section>
+  <section>
+    <h3>Attribute selectors</h3>
+    <table class="small">
+      <thead>
+        <tr>
+          <th>CSS</th>
+          <th>English</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>button[disabled]</code></td>
+          <td>Buttons that have the <code>disabled</code> attribute</td>
+        </tr>
+        <tr>
+          <td><code>input[type="text"]</code></td>
+          <td>Inputs whose <code>type</code> attribute is equal to <code>text</code></td>
+        </tr>
+        <tr>
+          <td><code>a[href*="wiki"]</code></td>
+          <td>Inputs whose <code>href</code> attribute contains <code>wiki</code></td>
+        </tr>
+      </tbody>
+    </table>
+    <aside class="notes">
+      There are others, but these are the most useful of the attribute selectors.
+    </aside>
+  </section>
+  <section>
+    <h3>Sequences of simple selectors</h3>
+    <table class="small">
+      <thead>
+        <tr>
+          <th>CSS</th>
+          <th>English</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>h1#title</code></td>
+          <td>The <code>h1</code> heading that has ID of <code>title</code></td>
+        </tr>
+        <tr>
+          <td><code>p.intro.headline[style]</code></td>
+          <td>Paragraphs that have both the <code>intro</code> and <code>headline</code> classes and that have a <code>style</code> attribute</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <section>
+    <h3>Pseudo-classes</h3>
+    <table class="small">
+      <thead>
+        <tr>
+          <th>CSS</th>
+          <th>English</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>:first-child</code></td>
+          <td>Elements that are the first child of their parent</td>
+        </tr>
+        <tr>
+          <td><code>:last-child</code></td>
+          <td>Elements that are the last child of their parent</td>
+        </tr>
+        <tr>
+          <td><code>:nth-child(3)</code></td>
+          <td>Elements that are the third child of their parent</td>
+        </tr>
+        <tr>
+          <td><code>:hover</code></td>
+          <td>Elements that are currently under the mouse cursor</td>
+        </tr>
+        <tr>
+          <td><code>:active</code></td>
+          <td>Elements that are currently being clicked</td>
+        </tr>
+        <tr>
+          <td><code>:empty</code></td>
+          <td>Elements that have no children or text</td>
+        </tr>
+        <tr>
+          <td><code>:not(.summary)</code></td>
+          <td>Elements that do not have the <code>summary</code> class</td>
+        </tr>
+      </tbody>
+    </table>
+    <aside class="notes">
+      An example use of the <code>:empty</code> pseudo-class would be on the Lucidpress document analytics page where a simple message is displayed to the user when there has not yet been any data collected for their document.
+    </aside>
+  </section>
+  <section>
+    <p>We're just scratching the surface...</p>
+    <p>Find more selectors on <a href="http://www.w3.org/TR/selectors/#selectors">the W3C specification</a>.</p>
+  </section>
+</section>
+<section>
+  <section>
+    <h2>Combinators</h2>
+    <p>String together simple selectors (or sequences of simple selectors) with <em>combinators</em> to create super-charged selectors.</p>
+  </section>
+  <section>
+    <table class="smaller">
+      <thead>
+        <tr>
+          <th>Combinator type</th>
+          <th>CSS</th>
+          <th>English</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Descendant</td>
+          <td><code>p a</code></td>
+          <td>Anchor tags that are inside of paragraph tags</td>
+        </tr>
+        <tr>
+          <td>Child</td>
+          <td><code>p > a</code></td>
+          <td>Anchor tags that are immediate children of paragraphs</td>
+        </tr>
+        <tr>
+          <td>Adjacent sibling</td>
+          <td><code>h1 + p</code></td>
+          <td>Paragraphs immediately preceded by <code>h1</code> headings</td>
+        </tr>
+        <tr>
+          <td>General sibling</td>
+          <td><code>h1 ~ p</code></td>
+          <td>Paragraphs preceded by <code>h1</code> headings</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <section>
+    <pre><code class="css" data-trim>
+.main header + section > .app.demo ul > li:first-child {
+  /* List items that are the first children of unordered
+   * lists that are descendants of elements with the "app"
+   * and "demo" classes that are children of sections
+   * preceded by headers that are descendants of elements
+   * with the "main" class.
+   */
+}
+    </code></pre>
+    <aside class="notes">
+      As you can see, you can use combinators to get very specific selectors. We'll talk more about selectors next week.
+    </aside>
+  </section>
+</section>
