@@ -190,8 +190,8 @@ p { /* &lt;== This is called a selector. */
       <tbody>
         <tr>
           <td>Descendant</td>
-          <td><code>p a</code></td>
-          <td>Anchor tags that are inside of paragraph tags</td>
+          <td><code>section li</code></td>
+          <td>List items that are inside of sections</td>
         </tr>
         <tr>
           <td>Child</td>
@@ -210,6 +210,9 @@ p { /* &lt;== This is called a selector. */
         </tr>
       </tbody>
     </table>
+    <aside class="notes">
+      Despite intuition, the general sibling combinator only selects elements that appear after the specified elements.
+    </aside>
   </section>
   <section>
     <pre><code class="css" data-trim>
@@ -223,7 +226,7 @@ p { /* &lt;== This is called a selector. */
 }
     </code></pre>
     <aside class="notes">
-      As you can see, you can use combinators to get very specific selectors. We'll talk more about selectors next week.
+      As you can see, you can use combinators to get very specific selectors. To reason through selectors like this, go from right to left. We'll talk more about specificity next week.
     </aside>
   </section>
 </section>
