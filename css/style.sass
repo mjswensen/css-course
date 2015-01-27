@@ -33,17 +33,21 @@ html, body
 h1, h2
   font-weight: 900
 
-h1
-  font-size: 2.25rem
+header
   padding: 1rem 2rem
-  &::after
-    content: ""
-    display: block
-    height: 1px
-    margin: 1rem -2rem $vertical-spacing -2rem
-    @include rainbow
-    @media screen and (max-width: $content-width)
+  margin-bottom: $vertical-spacing
+  h1
+    font-size: 2.25rem
+    &::after
+      content: ""
+      display: block
+      height: 1px
       margin: 1rem -2rem
+      @include rainbow
+      @media screen and (max-width: $content-width)
+        margin: 1rem -2rem
+  .subtitle
+    font-size: 1.33em
 
 em
   font-style: italic

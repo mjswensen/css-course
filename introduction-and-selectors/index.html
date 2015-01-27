@@ -6,7 +6,69 @@ description: A brief introduction to CSS and an in-depth look at composing CSS s
 ---
 
 <section>
-  <h1>Introduction and Selectors</h1>
+  <h1>CSS Power-ups</h1>
+</section>
+
+<section>
+  <section>
+    <p>Why get better at CSS?</p>
+  </section>
+  <section>
+    <ul>
+      <li>Consistent styles = better UX = <strong>more revenue</strong></li>
+      <li class="fragment">More efficiency = more work done = <strong>more revenue</strong></li>
+      <li class="fragment">Faster CSS = better UX = <strong>more revenue</strong></li>
+    </ul>
+    <aside class="notes">
+      It's no surprise that your increased CSS knowledge will make you more efficient as you work in your CSS code. We are going to talk about how to keep styles consistent across browsers and how to write performant CSS in this course.
+    </aside>
+  </section>
+  <section>
+    <ul>
+      <li>We're awesome and we are proud of our craft</li>
+      <li class="fragment">CSS is a primary component of our tech stack</li>
+      <li class="fragment">Writing CSS is <em>way</em> better now than it used to be</li>
+    </ul>
+    <aside class="notes">Every company's key to success is hiring top talent—including engineers. We should write quality CSS because we are artisans, proud of our craft. If you are building web applications as part of a SaaS offering, CSS is a major component of your technology stack whether you like to admit it or not. Besides, it's a lot more fun to write now than it was even five years ago.</aside>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h2>Topics of this course</h2>
+  </section>
+  <section>
+    <p>Selectors</p>
+  </section>
+  <section>
+    <p>Specificity and the cascade</p>
+  </section>
+  <section>
+    <p>The box model and positioning</p>
+  </section>
+  <section>
+    <p>Property categories and CSS3 modules</p>
+  </section>
+  <section>
+    <p>Responsive CSS</p>
+  </section>
+  <section>
+    <p>CSS preprocessors</p>
+  </section>
+  <section>
+    <p>Performance and Chrome's rendering cycle</p>
+  </section>
+  <section>
+    <p>Frameworks and architecture paradigms</p>
+    <aside class="notes">
+      For Lucid Software's internal course, we are then going to talk about how it all relates to our codebase (the build process, the CSS directory, etc.).
+    </aside>
+  </section>
+</section>
+
+<section>
+  <h1>Selectors</h1>
+  <small>(<a href="http://www.w3.org/TR/selectors/">W3C Specification</a>)</small>
 </section>
 
 <section>
@@ -21,14 +83,16 @@ description: A brief introduction to CSS and an in-depth look at composing CSS s
     <p>It works by "targeting" specific HTML elements and applying styles to those elements.</p>
   </section>
   <section>
-    <p>This "targeting" is achieved by <code>selectors</code>, and we'll see how those work today.</p>
+    <p>This "targeting" is achieved by <code>selectors</code>.</p>
   </section>
 </section>
 
 <section>
-  <h2>Anatomy of CSS</h2>
+  <h2>Anatomy lesson</h2>
+  <p>What is a selector?</p>
   <pre><code data-trim>
-p { /* &lt;== This is called a selector. */
+/* The "p" here is a selector. */
+p {
 
   /* The declaration block is made up of property-value pairs. */
   color: red;
@@ -39,10 +103,6 @@ p { /* &lt;== This is called a selector. */
 </section>
 
 <section>
-  <section>
-    <h2>Selectors</h2>
-    <small>(<a href="http://www.w3.org/TR/selectors/">W3C Specification</a>)</small>
-  </section>
   <section>
     <h3>Basic selectors</h3>
     <table class="small">
