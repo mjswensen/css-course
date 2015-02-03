@@ -185,5 +185,8 @@
     <a href="https://www.lucidchart.com">Lucidchart</a>
     <a href="https://www.lucidpress.com">Lucidpress</a>
   </footer>
+  {% if site.safe %}
+  {% include analytics.html %}
+  {% endif %}
 </body>
 </html>
