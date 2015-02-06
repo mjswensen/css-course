@@ -280,13 +280,39 @@ p {
     </aside>
   </section>
   <section>
+    <p>You can also apply the same styles to multiple selectors by separating the selectors with a comma.</p>
     <pre><code class="css" data-trim>
-.main header + section > .app.demo ul > li:first-child {
-  /* List items that are the first children of unordered
-   * lists that are descendants of elements with the "app"
-   * and "demo" classes that are children of sections
-   * preceded by headers that are descendants of elements
-   * with the "main" class.
+p, .subtitle {
+  font-size: 14px;
+}
+    </code></pre>
+    <p>In this example, paragraphs and elements with the <code>subtitle</code> class will have a font size of 14 pixels.</p>
+  </section>
+  <section>
+    <p>You can think of the comma as a logical OR, and sequences of simple selectors as a logial AND.</p>
+    <pre><code class="css" data-trim>
+p, .subtitle {
+  /* All elements that are either paragraphs
+   * OR that have the "subtitle" class.
+   */
+}
+
+p.subtitle {
+  /* All elements that are of type paragraph
+   * AND that also have the "subtitle" class.
+   */
+}
+    </code></pre>
+  </section>
+  <section>
+    <pre><code class="css" data-trim>
+.main header + section > .app.demo ul > li:first-child,
+.main header + section > .app.demo ul > li:last-child {
+  /* List items that are either the first or last children
+   * of unordered lists that are descendants of elements
+   * with both the "app" and "demo" classes that are
+   * children of sections immediately preceded by headers
+   * that are descendants of elements with the "main" class.
    */
 }
     </code></pre>
