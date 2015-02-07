@@ -1,0 +1,155 @@
+---
+layout: presentation
+theme: accent2
+title: The Cascade and Specificity
+description: An explanation of how the cascade and specificity work in CSS.
+---
+
+<section>
+  <h1>The Cascade and Specificity</h1>
+</section>
+
+<section>
+  <section>
+    <h2>The Cascade</h2>
+  </section>
+  <section>
+    <p>An element receives its style from the following, in order:</p>
+    <ol>
+      <li class="fragment">User-agent stylesheet (browser defaults)</li>
+      <li class="fragment">User-defined styles</li>
+      <li class="fragment">Author-defined styles
+        <ol>
+          <li class="fragment">External stylesheet</li>
+          <li class="fragment"><code>&lt;style&gt;</code> tag in the document</li>
+          <li class="fragment"><code>style=""</code> attribute on an element</li>
+        </ol>
+      </li>
+    </ol>
+    <aside class="notes">
+      So if a website author does not define styles for a given element, it will be styled by the user's or browser's default style sheet. Items lower in this list override items higher in the list.
+    </aside>
+  </section>
+  <section>
+    <p><strong>The cascade is a double-edged sword.</strong></p>
+    <p>It's powerful but can make debugging difficult.</p>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h2>Inheritance</h2>
+  </section>
+  <section>
+    <p>Perhaps even trickier to follow than the cascade is the notion of inheritance.</p>
+  </section>
+  <section>
+    <p>Certain styles are inherited from parent elements.</p>
+  </section>
+  <section>
+    <p>Given this CSS:</p>
+    <pre><code data-trim>
+body { font-size: 24px; }
+    </code></pre>
+    <p>And this HTML:</p>
+    <pre><code class="html" data-trim>
+...
+&lt;body&gt;
+  &lt;p&gt;Hi!&lt;/p&gt;
+&lt;/body&gt;
+...
+    </code></pre>
+    <p>The <code>&lt;p&gt;</code> tag inherits the font size from its parent, <code>&lt;body&gt;</code>.</p>
+    <aside class="notes">
+      The paragraph in this example only gets its parent's font size because it didn't have one itself.
+    </aside>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h2>Specificity</h2>
+  </section>
+  <section>
+    <p>So...what happens where there are two selectors in the stylesheet that target the same elements and have conflicting style properties?</p>
+    <pre><code class="html" data-trim>
+&lt;span class=&quot;author&quot;&gt;Mark Twain&lt;/span&gt;
+    </code></pre>
+    <pre><code class="css" data-trim>
+span {
+  font-size: 12px;
+}
+
+.author {
+  font-size: 10px;
+}
+    </code></pre>
+  </section>
+  <section>
+    <p>The answer: the selector that is most specific wins. Since a class selector is more specific than an element selector, the text will have a font size of 10px.</p>
+    <pre><code class="html" data-trim>
+&lt;span class=&quot;author&quot;&gt;Mark Twain&lt;/span&gt;
+    </code></pre>
+    <pre><code data-trim>
+span {
+  font-size: 12px;
+}
+
+.author {
+  font-size: 10px; /* I win! */
+}
+    </code></pre>
+  </section>
+  <section>
+    <p>So how do we know whether a selector is more specific than another selector?</p>
+  </section>
+  <section>
+    <p>We can use the familiar concept of version numbers to calculate specificity.</p>
+    <p class="fragment">Which version is higher, <code>1.30</code> or <code>2.1</code>?</p>
+  </section>
+  <section>
+    <p>Assume that the following two selectors apply to the same anchor element:</p>
+    <pre><code data-trim>
+.app nav.main > ul > li .active { color: lightblue; }
+
+header > nav:first-child a.active { color: goldenrod; }
+    </code></pre>
+    <p>How can we figure out which color the link will be?</p>
+  </section>
+  <section>
+    <p>We use this template. Break the selector into simple selectors and count:</p>
+    <p><code>[ID].[class, psuedo-class, attribute].[type]</code></p>
+  </section>
+  <section>
+    <p>So, for our first selector, there are <strong>0</strong> ID selectors...</p>
+    <p><code>.app nav.main > ul > li .active { color: lightblue; }</code></p>
+  </section>
+  <section>
+    <p>...<strong>3</strong> class selectors...</p>
+    <p><code><strong><em>.app</em></strong> nav<strong><em>.main</em></strong> > ul > li <strong><em>.active</em></strong> { color: lightblue; }</code></p>
+  </section>
+  <section>
+    <p>... and <strong>3</strong> type selectors...</p>
+    <p><code>.app <strong><em>nav</em></strong>.main > <strong><em>ul</em></strong> > <strong><em>li</em></strong> .active { color: lightblue; }</code></p>
+    <p class="fragment">...for a total selector strength of <strong>0.3.3</strong>.</p>
+  </section>
+  <section>
+    <p>Our second selector also has <strong>0</strong> ID selectors...</p>
+    <p><code>header > nav:first-child a.active { color: goldenrod; }</code></p>
+  </section>
+  <section>
+    <p>...<strong>2</strong> class/pseudo-class selectors...</p>
+    <p><code>header > nav<strong>:first-child</strong> a<strong>.active</strong> { color: goldenrod; }</code></p>
+  </section>
+  <section>
+    <p>...and <strong>3</strong> type selectors...</p>
+    <p><code><strong>header</strong> > <strong>nav</strong>:first-child <strong>a</strong>.active { color: goldenrod; }</code></p>
+    <p class="fragment">...for a total selector strength of <strong>0.2.3</strong>.</p>
+  </section>
+  <section>
+    <p>The first selector was slightly more specific, and therefore the link will be light blue.</p>
+  </section>
+  <!-- TODO: include fact that styles by inferior selectors that are not overridden by more specific selectors will cascade through. -->
+  <!-- TODO: show Chrome and how it calculates. -->
+  <!-- TODO: cover !important -->
+</section>
