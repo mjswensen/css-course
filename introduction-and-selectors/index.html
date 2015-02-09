@@ -7,6 +7,7 @@ description: A brief introduction to CSS and an in-depth look at composing CSS s
 
 <section>
   <h1>CSS Power-ups</h1>
+  <aside class="notes">(Speaker introduction.)</aside>
 </section>
 
 <section>
@@ -137,7 +138,7 @@ p {
       </tbody>
     </table>
     <aside class="notes">
-      Best practice: stick with classes for styling (we will get more into specificity next week). IDs are great for JS and Selenium, but not for CSS.
+      Best practice: stick with classes for styling (we will get more into specificity next time). IDs are great for JS and Selenium, but not for CSS.
     </aside>
   </section>
   <section>
@@ -167,27 +168,6 @@ p {
     <aside class="notes">
       There are others, but these are the most useful of the attribute selectors.
     </aside>
-  </section>
-  <section>
-    <h3>Sequences of simple selectors</h3>
-    <table class="small">
-      <thead>
-        <tr>
-          <th>CSS</th>
-          <th>English</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><code>h1#title</code></td>
-          <td>The <code>h1</code> heading that has ID of <code>title</code></td>
-        </tr>
-        <tr>
-          <td><code>p.intro.headline[style]</code></td>
-          <td>Paragraphs that have both the <code>intro</code> and <code>headline</code> classes and that have a <code>style</code> attribute</td>
-        </tr>
-      </tbody>
-    </table>
   </section>
   <section>
     <h3>Pseudo-classes</h3>
@@ -234,6 +214,27 @@ p {
     </aside>
   </section>
   <section>
+    <h3>Sequences of simple selectors</h3>
+    <table class="small">
+      <thead>
+        <tr>
+          <th>CSS</th>
+          <th>English</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>h1#title</code></td>
+          <td>The <code>h1</code> heading that has ID of <code>title</code></td>
+        </tr>
+        <tr>
+          <td><code>p.intro.headline[title]:hover</code></td>
+          <td>Paragraphs that have both the <code>intro</code> and <code>headline</code> classes and that have a <code>title</code> attribute and that are currently being "hovered"</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <section>
     <p>We're just scratching the surface...</p>
     <p>Find more selectors on <a href="http://www.w3.org/TR/selectors/#selectors">the W3C specification</a>.</p>
   </section>
@@ -255,7 +256,7 @@ p {
       <tbody>
         <tr>
           <td>Descendant</td>
-          <td><code>section li</code></td>
+          <td><code>section&nbsp;li</code></td>
           <td>List items that are inside of sections</td>
         </tr>
         <tr>
@@ -276,8 +277,29 @@ p {
       </tbody>
     </table>
     <aside class="notes">
-      Despite intuition, the general sibling combinator only selects elements that appear after the specified elements.
+      Despite intuition, the general sibling combinator only selects elements that appear *after* the specified elements.
     </aside>
+  </section>
+  <section>
+    <pre><code class="css" data-trim>
+.main header + section > .app.demo ul > li:first-child {
+  /* List items that are the first children of unordered
+   * lists that are descendants of elements with both the
+   * "app" and "demo" classes that are children of sections
+   * immediately preceded by headers that are descendants
+   * of elements with the "main" class.
+   */
+}
+    </code></pre>
+    <aside class="notes">
+      As you can see, you can use combinators to get very specific selectors. To reason through selectors like this, go from right to left. We'll talk more about specificity next week.
+    </aside>
+  </section>
+</section>
+
+<section>
+  <section>
+    <p>One last thing...</p>
   </section>
   <section>
     <p>You can also apply the same styles to multiple selectors by separating the selectors with a comma.</p>
@@ -287,6 +309,9 @@ p, .subtitle {
 }
     </code></pre>
     <p>In this example, paragraphs and elements with the <code>subtitle</code> class will have a font size of 14 pixels.</p>
+    <aside class="notes">
+      This isn't a combinator. It's just a comma.
+    </aside>
   </section>
   <section>
     <p>You can think of the comma as a logical OR, and sequences of simple selectors as a logial AND.</p>
@@ -304,20 +329,8 @@ p.subtitle {
 }
     </code></pre>
   </section>
-  <section>
-    <pre><code class="css" data-trim>
-.main header + section > .app.demo ul > li:first-child,
-.main header + section > .app.demo ul > li:last-child {
-  /* List items that are either the first or last children
-   * of unordered lists that are descendants of elements
-   * with both the "app" and "demo" classes that are
-   * children of sections immediately preceded by headers
-   * that are descendants of elements with the "main" class.
-   */
-}
-    </code></pre>
-    <aside class="notes">
-      As you can see, you can use combinators to get very specific selectors. To reason through selectors like this, go from right to left. We'll talk more about specificity next week.
-    </aside>
-  </section>
+</section>
+
+<section>
+  <p>Time for a little friendly competition...</p>
 </section>
