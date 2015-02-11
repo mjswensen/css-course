@@ -238,5 +238,8 @@ div .price {
     </section>
   </section>
   <script src="{{ site.baseurl }}/the-cascade-and-specificity/specificity-quiz/js/quiz.js"></script>
+  {% if site.safe %}
+  {% include analytics.html %}
+  {% endif %}
 </body>
 </html>
