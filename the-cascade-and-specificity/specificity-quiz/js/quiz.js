@@ -6,7 +6,7 @@ $(function() {
     questions = $('.question');
 
   $('.begin').on('click', function() {
-    $('.begin-wrapper').fadeOut(100, function() {
+    $('.begin-wrapper, .instructions').fadeOut(100, function() {
       $('.questions').fadeIn();
       begin = moment();
     });
