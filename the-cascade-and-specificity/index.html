@@ -85,7 +85,7 @@ span {
   </section>
   <section>
     <p>We can use the familiar concept of version numbers to calculate specificity.</p>
-    <p class="fragment">Which version is higher, <code>1.30</code> or <code>2.1</code>?</p>
+    <p class="fragment">Which version is higher, <code>1.30.4</code> or <code>2.1</code>?</p>
   </section>
   <section>
     <p>Assume that the following two selectors apply to the same anchor element:</p>
@@ -162,14 +162,35 @@ header > nav:first-child a.active {
   <!-- TODO: show Chrome and how it calculates. -->
   <!-- TODO: cover !important -->
   <!-- TODO: explain that if selectors have the same specifity, the later one will win (or the one in the higher-priority location). -->
+  <section>
+    <p>And what happens if two selectors have the <em>same</em> specificity?</p>
+    <pre><code data-trim>
+li a.current {
+  color: aqua;
+}
+
+nav.main a {
+  color: crimson;
+}
+    </code></pre>
+  </section>
+  <section>
+    <p>The one defined later wins.</p>
+    <pre><code data-trim>
+li a.current {
+  color: aqua;
+}
+
+nav.main a {
+  color: crimson; /* I win! */
+}
+    </code></pre>
+  </section>
 </section>
 
 <section>
   <section>
     <h2>Inheritance</h2>
-  </section>
-  <section>
-    <p>Perhaps even trickier to debug than the cascade is the notion of inheritance.</p>
   </section>
   <section>
     <p>Certain styles are inherited from parent elements.</p>
@@ -192,4 +213,8 @@ body { font-size: 24px; }
       The paragraph in this example only gets its parent's font size because it didn't have one itself.
     </aside>
   </section>
+</section>
+
+<section>
+  <h2>Chrome DevTools</h2>
 </section>

@@ -1,0 +1,82 @@
+---
+---
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Specificity Quiz • CSS Power-ups • Lucid Software</title>
+  <link rel="stylesheet" href="{{ site.baseurl }}/the-cascade-and-specificity/specificity-quiz/css/style.css">
+  <script src="{{ site.baseurl }}/the-cascade-and-specificity/specificity-quiz/js/jquery.min.js"></script>
+  <script src="{{ site.baseurl }}/the-cascade-and-specificity/specificity-quiz/js/moment.min.js"></script>
+</head>
+<body>
+  <section class="content">
+    <section class="introduction">
+      <h1>Specificity Quiz</h1>
+      <p>Choose the correct answer for each question.</p>
+      <p>An incorrect answer will cost you a 30-second penalty, but you can guess again.</p>
+      <div class="begin-wrapper"><button class="begin">Begin</button></div>
+    </section>
+    <section class="questions">
+      <section class="question" id="question-1">
+        <p>Given this HTML:</p>
+<pre><code>&#x3C;div id=&#x22;main&#x22; class=&#x22;container&#x22;&#x3E;
+    &#x3C;article id=&#x22;content&#x22;&#x3E;
+        &#x3C;ul class=&#x22;top-list&#x22;&#x3E;
+            &#x3C;li class=&#x22;list-item&#x22;&#x3E;What color am I?&#x3C;/li&#x3E;
+        &#x3C;/ul&#x3E;
+    &#x3C;/article&#x3E;
+&#x3C;/div&#x3E;</code></pre>
+        <p>And this CSS:</p>
+<pre><code>div article ul li {
+    color: gold;
+}
+
+.container > #content li.list-item {
+    color: forestgreen;
+}
+
+#main #content li {
+    color: hotpink;
+}
+
+.container .top-list .list-item {
+    color: darkorange;
+}</code></pre>
+        <p>What color will the <code>li</code> be?</p>
+        <form class="answer" id="question-1-answer">
+          <label><input name="question-1" type="radio" value="incorrect"> gold</label>
+          <label><input name="question-1" type="radio" value="incorrect"> forestgreen</label>
+          <label><input name="question-1" type="radio" value="correct"> hotpink</label>
+          <label><input name="question-1" type="radio" value="incorrect"> darkorange</label>
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+      <section class="question" id="question-2">
+        <p>Given this HTML:</p>
+<pre><code>&#x3C;nav class=&#x22;primary&#x22;&#x3E;
+  &#x3C;a href=&#x22;#&#x22; class=&#x22;navigation&#x22;&#x3E;What is my font size?&#x3C;/a&#x3E;
+&#x3C;/nav&#x3E;</pre></code>
+        <p>And this CSS:</p>
+<pre><code>.primary a {
+  font-size: 16px;
+}
+
+nav a.navigation {
+  font-size: 18px;
+}</pre></code>
+        <p>What will the font size of the link be?</p>
+        <form class="answer">
+          <label><input name="question-2" type="radio" value="incorrect">16px</label>
+          <label><input name="question-2" type="radio" value="correct">18px</label>
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+    </section>
+    <section class="results">
+      <p>You did it! You completed the quiz in <span class="time"></span>.</p>
+    </section>
+  </section>
+  <script src="{{ site.baseurl }}/the-cascade-and-specificity/specificity-quiz/js/quiz.js"></script>
+</body>
+</html>
