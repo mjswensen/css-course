@@ -173,6 +173,62 @@ div .price {
           <button type="submit">Submit</button>
         </form>
       </section>
+      <section class="question">
+        <p>Given this HTML:</p>
+<pre><code>&#x3C;aside class=&#x22;sitemap&#x22;&#x3E;
+  &#x3C;ul class=&#x22;pages&#x22;&#x3E;
+    &#x3C;li&#x3E;A&#x3C;/li&#x3E;
+    &#x3C;li&#x3E;B&#x3C;/li&#x3E;
+    &#x3C;li&#x3E;C
+      &#x3C;ul&#x3E;
+        &#x3C;li&#x3E;D&#x3C;/li&#x3E;
+        &#x3C;li class=&#x22;featured&#x22;&#x3E;E&#x3C;/li&#x3E;
+        &#x3C;li&#x3E;F&#x3C;/li&#x3E;
+      &#x3C;/ul&#x3E;
+      &#x3C;li&#x3E;G&#x3C;/li&#x3E;
+      &#x3C;ul&#x3E;
+        &#x3C;li&#x3E;H
+          &#x3C;ul&#x3E;
+            &#x3C;li class=&#x22;featured&#x22;&#x3E;I&#x3C;/li&#x3E;
+            &#x3C;li&#x3E;J&#x3C;/li&#x3E;
+          &#x3C;/ul&#x3E;
+        &#x3C;/li&#x3E;
+      &#x3C;/ul&#x3E;
+    &#x3C;/li&#x3E;
+  &#x3C;/ul&#x3E;
+&#x3C;/aside&#x3E;</code></pre>
+        <p>And this CSS:</p>
+<pre><code>.sitemap li {
+  color: teal;
+}
+
+.pages > li > ul > li {
+  color: red
+}
+
+.featured {
+  color: orangered;
+}
+
+.pages .featured {
+  color: plum;
+}
+
+.sitemap li:first-child {
+  color: deeppink;
+}</code></pre>
+        <p>Which of the list items will be teal?</p>
+        <form class="answer">
+          <label><input type="radio" name="answer" value="incorrect">A, B, and C</label>
+          <label><input type="radio" name="answer" value="incorrect">A, B, C, D, F, G, H, and J</label>
+          <label><input type="radio" name="answer" value="incorrect">D, E, F, I, and J</label>
+          <label><input type="radio" name="answer" value="incorrect">A, B, C, D, and F</label>
+          <label><input type="radio" name="answer" value="incorrect">D, F, G, H, and J</label>
+          <label><input type="radio" name="answer" value="correct">B, C, G, and J</label>
+          <label><input type="radio" name="answer" value="incorrect">All of them (A-J)</label>
+          <button type="submit">Submit</button>
+        </form>
+      </section>
     </section>
     <section class="results">
       <p>You did it! You completed the quiz in <span class="time"></span>.</p>
