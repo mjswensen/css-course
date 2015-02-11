@@ -18,12 +18,55 @@
       <div class="begin-wrapper"><button class="begin">Begin</button></div>
     </section>
     <section class="questions">
-      <section class="question" id="question-1">
+      <section class="question">
+        <p>Given this HTML:</p>
+<pre><code>&#x3C;p id=&#x22;abstract&#x22; class=&#x22;subtitle&#x22;&#x3E;Hello, world!&#x3C;/p&#x3E;</code></pre>
+        <p>And this CSS:</p>
+<pre><code>#abstract {
+  background-color: darkkhaki;
+}
+
+p {
+  background-color: dimgray;
+}
+
+.subtitle {
+  background-color: mediumorchid;
+}</code></pre>
+        <p>What will the background color of the paragraph be?</p>
+        <form class="answer">
+          <label><input type="radio" name="answer" value="correct">darkkhaki</label>
+          <label><input type="radio" name="answer" value="incorrect">dimgray</label>
+          <label><input type="radio" name="answer" value="incorrect">mediumorchid</label>
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+      <section class="question">
+        <p>Given this HTML:</p>
+<pre><code>&#x3C;nav class=&#x22;primary&#x22;&#x3E;
+  &#x3C;a href=&#x22;#&#x22; class=&#x22;navigation&#x22;&#x3E;Home&#x3C;/a&#x3E;
+&#x3C;/nav&#x3E;</pre></code>
+        <p>And this CSS:</p>
+<pre><code>.primary a {
+  font-size: 16px;
+}
+
+nav a.navigation {
+  font-size: 18px;
+}</pre></code>
+        <p>What will the font size of the link be?</p>
+        <form class="answer">
+          <label><input name="answer" type="radio" value="incorrect">16px</label>
+          <label><input name="answer" type="radio" value="correct">18px</label>
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+      <section class="question">
         <p>Given this HTML:</p>
 <pre><code>&#x3C;div id=&#x22;main&#x22; class=&#x22;container&#x22;&#x3E;
     &#x3C;article id=&#x22;content&#x22;&#x3E;
         &#x3C;ul class=&#x22;top-list&#x22;&#x3E;
-            &#x3C;li class=&#x22;list-item&#x22;&#x3E;What color am I?&#x3C;/li&#x3E;
+            &#x3C;li class=&#x22;list-item&#x22;&#x3E;Item 1&#x3C;/li&#x3E;
         &#x3C;/ul&#x3E;
     &#x3C;/article&#x3E;
 &#x3C;/div&#x3E;</code></pre>
@@ -44,31 +87,88 @@
     color: darkorange;
 }</code></pre>
         <p>What color will the <code>li</code> be?</p>
-        <form class="answer" id="question-1-answer">
-          <label><input name="question-1" type="radio" value="incorrect"> gold</label>
-          <label><input name="question-1" type="radio" value="incorrect"> forestgreen</label>
-          <label><input name="question-1" type="radio" value="correct"> hotpink</label>
-          <label><input name="question-1" type="radio" value="incorrect"> darkorange</label>
+        <form class="answer">
+          <label><input name="answer" type="radio" value="incorrect"> gold</label>
+          <label><input name="answer" type="radio" value="incorrect"> forestgreen</label>
+          <label><input name="answer" type="radio" value="correct"> hotpink</label>
+          <label><input name="answer" type="radio" value="incorrect"> darkorange</label>
           <button type="submit">Submit</button>
         </form>
       </section>
-      <section class="question" id="question-2">
+      <section class="question">
         <p>Given this HTML:</p>
-<pre><code>&#x3C;nav class=&#x22;primary&#x22;&#x3E;
-  &#x3C;a href=&#x22;#&#x22; class=&#x22;navigation&#x22;&#x3E;What is my font size?&#x3C;/a&#x3E;
-&#x3C;/nav&#x3E;</pre></code>
+<pre><code>&#x3C;article class=&#x22;news&#x22;&#x3E;
+  &#x3C;h1 class=&#x22;headline&#x22;&#x3E;This just in!&#x3C;/h1&#x3E;
+  &#x3C;p class=&#x22;abstract&#x22;&#x3E;Abstract&#x3C;/p&#x3E;
+  &#x3C;p&#x3E;Paragraph 1&#x3C;/p&#x3E;
+&#x3C;/article&#x3E;</code></pre>
         <p>And this CSS:</p>
-<pre><code>.primary a {
-  font-size: 16px;
+<pre><code>body {
+  font-size: 10px;
 }
 
-nav a.navigation {
-  font-size: 18px;
-}</pre></code>
-        <p>What will the font size of the link be?</p>
+.news {
+  font-size: 12px;
+}
+
+.news h1 + p {
+  font-style: italic;
+  font-size: 14px;
+}
+
+.news .abstract {
+  font-size: 16px;
+}</code></pre>
+        <p>What font sizes will the abstract paragraph and other paragraph be, respectively?</p>
+        <form action="" class="answer">
+          <label><input type="radio" name="answer" value="incorrect">14px, 14px</label>
+          <label><input type="radio" name="answer" value="incorrect">16px, 14px</label>
+          <label><input type="radio" name="answer" value="correct">16px, 12px</label>
+          <label><input type="radio" name="answer" value="incorrect">14px, 12px</label>
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+      <section class="question">
+        <p>Given this HTML:</p>
+<pre><code>&#x3C;section id=&#x22;app&#x22;&#x3E;
+  &#x3C;ul class=&#x22;products&#x22;&#x3E;
+    &#x3C;li class=&#x22;product&#x22;&#x3E;
+      &#x3C;div class=&#x22;showcase&#x22;&#x3E;
+        &#x3C;img src=&#x22;/img1.jpg&#x22;&#x3E;
+        &#x3C;span class=&#x22;price&#x22;&#x3E;$5.99&#x3C;/span&#x3E;
+      &#x3C;/div&#x3E;
+    &#x3C;/li&#x3E;
+    &#x3C;li class=&#x22;product&#x22;&#x3E;
+      &#x3C;div class=&#x22;showcase&#x22;&#x3E;
+        &#x3C;img src=&#x22;/img2.jpg&#x22;&#x3E;
+        &#x3C;span class=&#x22;price&#x22;&#x3E;$29.99&#x3C;/span&#x3E;
+      &#x3C;/div&#x3E;
+    &#x3C;/li&#x3E;
+  &#x3C;/ul&#x3E;
+&#x3C;/section&#x3E;</code></pre>
+        <p>And this CSS:</p>
+<pre><code>.app .products .product .showcase .price {
+  color: limegreen;
+}
+
+.products > li > div > span {
+  color: salmon;
+}
+
+div .price {
+  color: maroon;
+}
+
+#app > .price {
+  color: navy;
+}
+</code></pre>
+        <p>What color will the prices be?</p>
         <form class="answer">
-          <label><input name="question-2" type="radio" value="incorrect">16px</label>
-          <label><input name="question-2" type="radio" value="correct">18px</label>
+          <label><input type="radio" name="answer" value="incorrect">limegreen</label>
+          <label><input type="radio" name="answer" value="correct">salmon</label>
+          <label><input type="radio" name="answer" value="incorrect">maroon</label>
+          <label><input type="radio" name="answer" value="incorrect">navy</label>
           <button type="submit">Submit</button>
         </form>
       </section>

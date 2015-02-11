@@ -47,8 +47,7 @@ code
     padding: 1rem
     margin: 1rem 0
     border-radius: 2px
-    &:nth-child(odd)
-      background-color: transparentize($accent-2, 0.9)
+    border: 1px solid transparentize($accent-2, 0.8)
     &.correct, &.incorrect
       & *
         opacity: 0.3
@@ -71,7 +70,7 @@ code
       background-color: hsla(359, 45%, 46%, 0.5)
       text-align: right
       padding: 1rem 1.5rem
-      content: "Incorrect."
+      content: "Incorrect. Try again when the question unlocks."
   .answer
     label
       display: block
