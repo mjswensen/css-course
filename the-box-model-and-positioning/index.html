@@ -1,0 +1,172 @@
+---
+layout: presentation
+theme: accent3
+title: The Box Model and Positioning
+description: A look at the box model and tips on how to create layouts.
+customcss: /the-box-model-and-positioning/style.css
+---
+
+<section>
+  <h1>The Box Model and Positioning</h1>
+</section>
+
+<section>
+  <section>
+    <h2>The Box Model</h2>
+  </section>
+  <section>
+    <p>The responsibility of a web browser's rendering engine is to determine the size, properties, and position of rectangular boxes (elements). [<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box_model">MDN article on the box model.</a>]</p>
+  </section>
+  <section>
+    <p>The box model outlines how these rectangles are sized and positioned.</p>
+  </section>
+  <section>
+    <p>For a given element, like <code>&#x3C;p&#x3E;My paragraph&#x3C;/p&#x3E;</code>:</p>
+    <div class="box-model">
+      <div class="margin">
+        <div class="border">
+          <div class="padding">
+            <div class="content">My paragraph</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">All of these things contribute to the size and positioning of an element.</aside>
+  </section>
+  <section>
+    <p>Ocassionaly the box model can be tricky when you are trying to give a value to the <code>width</code> property.</p>
+  </section>
+  <section>
+    <p>Use the <code>box-sizing</code> property to get around that.</p>
+    <div data-height="257" data-theme-id="12278" data-slug-hash="MYVwzR" data-default-tab="html" data-user="mjswensen" class='codepen'>
+      <p>See the Pen <a href='http://codepen.io/mjswensen/pen/MYVwzR/'>CSS Power-ups - Examples - box-sizing</a> by Matt Swensen (<a href='http://codepen.io/mjswensen'>@mjswensen</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+    </div>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>The <code>display</code> Property</h3>
+  </section>
+  <section>
+    <p>There are lots of possible values for this property, but the three main ones are:</p>
+    <ul>
+      <li class="fragment"><code>inline</code></li>
+      <li class="fragment"><code>block</code></li>
+      <li class="fragment"><code>inline-block</code></li>
+    </ul>
+  </section>
+  <section>
+    <h4><code>inline</code></h4>
+    <p><code>inline</code> instructs the browser that the element should flow with the text (and other <code>inline</code> elements) on the page.</p>
+    <div data-height="270" data-theme-id="12278" data-slug-hash="xbYXEx" data-default-tab="html" data-user="mjswensen" class='codepen'><pre><code>&lt;p&gt;It&#x27;s a &lt;span&gt;trap!&lt;/span&gt;&lt;/p&gt;</code></pre>
+      <p>See the Pen <a href='http://codepen.io/mjswensen/pen/xbYXEx/'>CSS Power-ups - Examples - inline</a> by Matt Swensen (<a href='http://codepen.io/mjswensen'>@mjswensen</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+    </div>
+  </section>
+  <section>
+    <p>Some elements have <code>inline</code> as their default <code>display</code> value:</p>
+    <ul class="fragment">
+      <li><code>&#x3C;span&#x3E;</code></li>
+      <li><code>&#x3C;img&#x3E;</code></li>
+      <li><code>&#x3C;strong&#x3E;</code></li>
+      <li>etc.</li>
+    </ul>
+  </section>
+  <section>
+    <h4><code>block</code></h4>
+    <p><code>block</code> breaks the normal flow of the text.</p>
+    <div data-height="260" data-theme-id="12278" data-slug-hash="LEdEvK" data-default-tab="html" data-user="mjswensen" class='codepen'><pre><code>&lt;p&gt;&quot;It&#x27;s a &lt;span&gt;trap!&lt;/span&gt;&quot; —Admiral Ackbar&lt;/p&gt;</code></pre>
+      <p>See the Pen <a href='http://codepen.io/mjswensen/pen/LEdEvK/'>CSS Power-ups - Examples - block</a> by Matt Swensen (<a href='http://codepen.io/mjswensen'>@mjswensen</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+    </div>
+  </section>
+  <section>
+    <p>Many elements have <code>block</code> as their default <code>display</code> value:</p>
+    <ul class="fragment">
+      <li><code>&#x3C;p&#x3E;</code></li>
+      <li><code>&#x3C;li&#x3E;</code></li>
+      <li><code>&#x3C;section&#x3E;</code></li>
+      <li>etc.</li>
+    </ul>
+  </section>
+  <section>
+    <h4><code>inline-block</code></h4>
+    <p><code>inline-block</code> is the best of both worlds; elements flow with the text of the page, but you can define and width and height for the element.</p>
+    <p>(<code>inline</code> elements ignore width and height declarations.)</p>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>Other Values For <code>display</code></h3>
+  </section>
+  <section>
+    <p>In the early Web, people used <code>&#x3C;table&#x3E;</code> tags to help with complex layouts.</p>
+    <aside class="notes">
+      There wasn't really any other way to do it back then. Photoshop used to (it still may) provide a feature that allowed designers to slice up their mockup and plop the image slices into HTML tables with a few clicks, too.
+    </aside>
+  </section>
+  <section>
+    <p>While this "tables for layout" approach is considered bad practice today, one can still style more semantic elements to behave like table cells, rows, etc. using the <code>display</code> property.</p>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>The <code>position</code> Property</h3>
+  </section>
+  <section>
+    <p>There are four supported values for the <code>position</code> property:</p>
+    <ul>
+      <li><code>relative</code></li>
+      <li><code>absolute</code></li>
+      <li><code>fixed</code></li>
+      <li><code>static</code> (the default value for all elements)</li>
+    </ul>
+    <aside class="notes">
+      Firefox also supports a fifth value: "sticky."
+    </aside>
+  </section>
+  <section>
+    <h4><code>relative</code></h4>
+    <p><code>relative</code> moves the element, <em>relative to where it would have been had you left it <code>static</code>.</em></p>
+    <div class="fragment">
+      <p>Use these properties to position the element:</p>
+      <ul>
+        <li><code>top</code></li>
+        <li><code>right</code></li>
+        <li><code>bottom</code></li>
+        <li><code>left</code></li>
+      </ul>
+    </div>
+  </section>
+  <section>
+    <p>Here is an example of relative positioning:</p>
+    <div data-height="300" data-theme-id="12278" data-slug-hash="NPYqXY" data-default-tab="html" data-user="mjswensen" class='codepen'><pre><code>&lt;p&gt;&quot;It&#x27;s a &lt;span&gt;trap!&lt;/span&gt;&quot; —Admiral Ackbar&lt;/p&gt;</code></pre>
+      <p>See the Pen <a href='http://codepen.io/mjswensen/pen/NPYqXY/'>CSS Power-ups - Examples - relative</a> by Matt Swensen (<a href='http://codepen.io/mjswensen'>@mjswensen</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+    </div>
+  </section>
+  <section>
+    <h4><code>absolute</code></h4>
+    <p><code>absolute</code> instructs the browser to position the element in absolute terms, using the same four properties as <code>relative</code>.</p>
+    <p class="fragment"><strong>The element will be positioned in terms of its closest ancestor with positioning context.</strong> (<a href="http://css-tricks.com/absolute-positioning-inside-relative-positioning/">visual explanation</a>)</p>
+    <aside class="notes">
+      "Positioning context" means having a value other than "static" for the "position" property. Often you will run into an element that has "position: relative;" but no other positioning properties—this is to provide context for descendent elements.
+    </aside>
+  </section>
+  <section>
+    <h4><code>fixed</code></h4>
+    <p>Affixes an element to a given location, regardless of scroll position.</p>
+    <p class="fragment">See the header bar on <a href="https://www.golucid.co/">golucid.co</a>.</p>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>The <code>flex-box</code> approach</h3>
+  </section>
+  <section>
+    <p>TODO: start here</p>
+  </section>
+</section>
+
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>

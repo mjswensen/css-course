@@ -17,6 +17,10 @@
     <link rel="stylesheet" href="{{ site.baseurl }}/lib/reveal.js/css/reveal.css">
     <link rel="stylesheet" href="{{ site.baseurl }}/lib/reveal.js/css/theme/{{ page.theme }}.css" id="theme">
 
+    {% if page.customcss %}
+    <link rel="stylesheet" href="{{ site.baseurl }}{{ page.customcss }}">
+    {% endif %}
+
     <link rel="stylesheet" href="{{ site.baseurl }}/lib/reveal.js/lib/css/zenburn.css">
 
     <link rel="icon" type="image/png" href="{{ site.baseurl }}/favicon.png">
