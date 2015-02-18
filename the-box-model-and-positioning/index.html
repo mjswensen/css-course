@@ -90,8 +90,16 @@ customcss: /the-box-model-and-positioning/style.css
   </section>
   <section>
     <h4><code>inline-block</code></h4>
-    <p><code>inline-block</code> is the best of both worlds; elements flow with the text of the page, but you can define and width and height for the element.</p>
+    <p><code>inline-block</code> is a hybrid; elements flow with the text of the page, but you can define the width and height for the element.</p>
     <p>(<code>inline</code> elements ignore width and height declarations.)</p>
+    <p class="fragment">For a great visual explanation of the difference, see <a href="http://stackoverflow.com/a/14033814/926279">this StackOverflow answer</a>.</p>
+  </section>
+  <section>
+    <p><strong>Tip:</strong> If you use <code>inline-block</code> for layout, be aware that since <code>inline</code> and <code>inline-block</code> elements flow like text, sometimes there will be a small space character between them.</p>
+    <p>See <a href="http://codepen.io/mjswensen/pen/NPYjPg">this <code>inline-block</code> example</a> for the trick.</p>
+    <aside class="notes">
+      The trick shown in the Pen is not original.
+    </aside>
   </section>
 </section>
 
@@ -107,6 +115,7 @@ customcss: /the-box-model-and-positioning/style.css
   </section>
   <section>
     <p>While this "tables for layout" approach is considered bad practice today, one can still style more semantic elements to behave like table cells, rows, etc. using the <code>display</code> property.</p>
+    <p class="fragment">You will probably never need to do this, but it's possible.</p>
   </section>
 </section>
 
@@ -172,9 +181,10 @@ customcss: /the-box-model-and-positioning/style.css
   </section>
   <section>
     <p>See <a href="http://codepen.io/starzonmyarmz/full/WbGrgM">some powerful Flexbox examples</a>, courtesy of <a href="http://iamdanielmarino.com/">Daniel Marino</a>.</p>
+    <p class="fragment">Or <a href="http://codepen.io/Nyloxz/pen/Bqpdh">this pretty demo</a> by <a href="http://lkorterink.newdeveloper.nl/">Leroy Korterink</a>.</p>
   </section>
   <section>
-    <p>I highly recommend <a href="http://css-tricks.com/snippets/css/a-guide-to-flexbox/">A Complete Guide to Flexbox</a> by Chris Coyier for more.</p>
+    <p>I highly recommend <a href="http://css-tricks.com/snippets/css/a-guide-to-flexbox/">A Complete Guide to Flexbox</a> by Chris Coyier to learn more.</p>
     <aside class="notes">
       It's got graphics, code examples, and optional additional information to get you going with Flexbox in no time.
     </aside>
@@ -187,6 +197,9 @@ customcss: /the-box-model-and-positioning/style.css
 
 <section>
   <p>Time for a <a href="{{ site.baseurl }}/#week-3">challenge</a>...</p>
+  <aside class="notes">
+    It's impossible to learn how to make layouts with CSS without actually doing it.
+  </aside>
 </section>
 
 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
