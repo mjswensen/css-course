@@ -1,0 +1,265 @@
+---
+layout: presentation
+theme: accent4
+title: Property Categories and CSS3 Modules
+description: An overview of the different types of things one can achieve with CSS.
+customcss: /property-categories-and-css3-modules/style.css
+---
+
+<section>
+  <section>
+    <h1>Property Categories and CSS3 Modules</h1>
+  </section>
+
+  <section>
+    <p>How to make things look pretty.</p>
+    <aside class="notes">
+      Last week we talked about how to get things in the right place with CSS properties that relate to layout. Today we will talk about how to skin the elements and get the look and feel we want.
+    </aside>
+  </section>
+
+  <section>
+    <p>Before we dive in, let's talk about pseudo-elements.</p>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h2>Pseudo-elements</h2>
+  </section>
+  <section>
+    <p>Pseudo-elements let you inject elements into your markup from your stylesheet.</p>
+    <div data-height="257" data-theme-id="12278" data-slug-hash="NPMmQr" data-default-tab="html" data-user="mjswensen" class='codepen'><pre><code>&lt;p&gt;Hello, world!&lt;/p&gt;</code></pre>
+      <p>See the Pen <a href='http://codepen.io/mjswensen/pen/NPMmQr/'>CSS Power-ups - Examples - Pseudo-elements</a> by Matt Swensen (<a href='http://codepen.io/mjswensen'>@mjswensen</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+    </div>
+  </section>
+  <section>
+    <p>These are the types of pseudo-elements:</p>
+    <ul class="no-style-type">
+      <li><code>::before</code></li>
+      <li><code>::after</code></li>
+      <li><code>::first-letter</code></li>
+      <li><code>::first-line</code></li>
+      <li><code>::selection</code></li>
+      <li><code>::backdrop</code></li>
+    </ul>
+    <aside class="notes">
+      ::before and ::after are somewhat misleading. The CSS Power-ups homepage has an example of ::selection. ::backdrop might be used for modal overlays in the future.
+    </aside>
+  </section>
+</section>
+
+<section>
+  <h2>Property Categories</h2>
+  <p>(<a href="http://www.w3.org/community/webed/wiki/CSS/Properties">W3C Wiki</a>)</p>
+</section>
+
+<section>
+  <section>
+    <h3>Layout</h3>
+    <p>(Review from last week)</p>
+  </section>
+  <section>
+    <h4>Visual Formatting</h4>
+    <ul class="no-style-type two-columns">
+      <li><code>display</code></li>
+      <li><code>position</code></li>
+      <li><code>top</code></li>
+      <li><code>right</code></li>
+      <li><code>bottom</code></li>
+      <li><code>left</code></li>
+      <li><code>float</code></li>
+      <li><code>clear</code></li>
+      <li><code>z-index</code> (<a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Understanding_z_index/The_stacking_context">learn about stacking context</a>)</li>
+      <li><code>overflow</code></li>
+      <li><code>visibility</code></li>
+      <li><code>cursor</code></li>
+    </ul>
+    <aside class="notes">
+      z-index needs a value for the position property in order to have any effect. z-index is also affected by stacking contexts, which can lead to unintuitive behavior.
+    </aside>
+  </section>
+  <section>
+    <h4>Box Size</h4>
+    <ul class="no-style-type">
+      <li><code>width</code></li>
+      <li><code>min-width</code></li>
+      <li><code>max-width</code></li>
+      <li><code>height</code></li>
+      <li><code>min-height</code></li>
+      <li><code>max-height</code></li>
+    </ul>
+  </section>
+  <section>
+    <h4>Margin and Padding</h4>
+    <ul class="no-style-type two-column">
+      <li><code>margin</code></li>
+      <li><code>margin-top</code></li>
+      <li><code>margin-right</code></li>
+      <li><code>margin-bottom</code></li>
+      <li><code>margin-left</code></li>
+      <li><code>padding</code></li>
+      <li><code>padding-top</code></li>
+      <li><code>padding-right</code></li>
+      <li><code>padding-bottom</code></li>
+      <li><code>padding-left</code></li>
+    </ul>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>Skin</h3>
+  </section>
+  <section>
+    <h4>Background</h4>
+    <ul class="no-style-type two-column">
+      <li><code>background-color</code></li>
+      <li><code>background-image</code></li>
+      <li><code>background-repeat</code></li>
+      <li><code>background-attachment</code></li>
+      <li><code>background-position</code></li>
+      <li><code>background</code></li>
+    </ul>
+  </section>
+  <section>
+    <h4>Border</h4>
+    <ul class="no-style-type">
+      <li><code>border-width</code></li>
+      <li><code>border-color</code></li>
+      <li><code>border-style</code></li>
+      <li><code>border</code></li>
+      <li><code>border-radius</code></li>
+    </ul>
+  </section>
+  <section>
+    <h4>Font</h4>
+    <ul class="no-style-type">
+      <li><code>font-family</code></li>
+      <li><code>font-style</code></li>
+      <li><code>font-variant</code></li>
+      <li><code>font-weight</code></li>
+      <li><code>font-size</code></li>
+      <li><code>font</code></li>
+    </ul>
+  </section>
+  <section>
+    <h4>Text</h4>
+    <ul class="no-style-type two-column">
+      <li><code>text-align</code></li>
+      <li><code>text-decoration</code></li>
+      <li><code>text-indent</code></li>
+      <li><code>text-transform</code></li>
+      <li><code>line-height</code></li>
+      <li><code>vertical-align</code></li>
+      <li><code>letter-spacing</code></li>
+      <li><code>word-spacing</code></li>
+      <li><code>white-space</code></li>
+      <li><code>direction</code></li>
+    </ul>
+  </section>
+  <section>
+    <h4>Color</h4>
+    <ul class="no-style-type">
+      <li><code>color</code></li>
+      <li><code>opacity</code></li>
+    </ul>
+  </section>
+  <section>
+    <h4>List</h4>
+    <ul class="no-style-type">
+      <li><code>list-style-type</code></li>
+      <li><code>list-style-image</code></li>
+      <li><code>list-style-position</code></li>
+      <li><code>list-style</code></li>
+    </ul>
+  </section>
+  <section>
+    <h4>Table</h4>
+    <ul class="no-style-type">
+      <li><code>caption-side</code></li>
+      <li><code>table-layout</code></li>
+      <li><code>border-collapse</code></li>
+      <li><code>border-spacing</code></li>
+      <li><code>empty-cells</code></li>
+    </ul>
+  </section>
+  <section>
+    <h4>Generated Content</h4>
+    <ul class="no-style-type">
+      <li><code>content</code></li>
+      <li><code>quotes</code></li>
+      <li><code>counter-reset</code></li>
+      <li><code>counter-increment</code></li>
+    </ul>
+  </section>
+  <section>
+    <h4>Print</h4>
+    <ul class="no-style-type">
+      <li><code>page-break-before</code></li>
+      <li><code>page-break-after</code></li>
+      <li><code>page-break-inside</code></li>
+      <li><code>orphans</code></li>
+      <li><code>widows</code></li>
+    </ul>
+  </section>
+  <section>
+    <p>Lots more...</p>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h2>CSS Evolvement Process</h2>
+  </section>
+  <section>
+    <p><strong>Step 1:</strong> CSS specifications are developed by <a href="http://www.w3.org/Consortium/">the World Wide Web Consortium (the W3C)</a>.</p>
+    <aside class="notes">
+      The W3C is made up of a full-time staff as well as member organizations, and is lead by Tim Berners-Lee.
+    </aside>
+  </section>
+  <section>
+    <p><strong>Step 2:</strong> Browser creators (Microsoft, Google, Mozilla) can choose to implement support for the specifications in their browsers.</p>
+  </section>
+  <section>
+    <p><strong>Step 3:</strong> Web developers can use those features in their web pages.</p>
+    <aside class="notes">
+      This process is why we have web pages today that look different than the ones that existed in the 90's.
+    </aside>
+  </section>
+  <section>
+    <p>Sometimes browser vendors implement support for a feature before it becomes a W3C Recommendation.</p>
+    <pre class="fragment"><code class="css" data-trim>
+ul {
+  -moz-columns: 2; /* for Firefox */
+  -webkit-columns: 2; /* for Chrome, Safari */
+  columns: 2; /* future-proofing */
+}
+    </code></pre>
+    <p class="fragment">To determine when vendor prefixing is necessary, I use <a href="http://caniuse.com/">caniuse.com</a>.</p>
+    <aside class="notes">
+      When they do this, they prepend the feature with their proprietary prefix (e.g., "-webkit-"). Put the spec-compliant version last. Given that CSS3 is always under development, tools like caniuse or prefixer are invaluable.
+    </aside>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h2>CSS3 Modules</h2>
+  </section>
+  <section>
+    <p><a href="http://www.w3.org/Style/CSS/current-work.en.html">Current progress on module development.</a></p>
+    <aside class="notes">
+      The W3C has split CSS3 into multiple "modules," to make the progression of CSS more modular and agile (as opposed to simply developing the whole version update at once). This way, modules can advance toward recommendation status at different paces, or can be abandoned altogether without as much overhead.
+    </aside>
+  </section>
+</section>
+
+<section>
+  <p>Time for the big coding challenge...</p>
+  <aside class="notes">
+    The best way to learn about what is possible in CSS is to try to push the boundaries yourself.
+  </aside>
+</section>
+
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
