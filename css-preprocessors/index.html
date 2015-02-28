@@ -1,0 +1,164 @@
+---
+layout: presentation
+theme: accent6
+title: CSS Preprocessors
+description: An introduction to popular CSS preprocessors, how they work, and their relative strengths and weaknesses.
+---
+
+<section>
+  <section>
+    <h1>CSS Preprocessors</h1>
+  </section>
+  <section>
+    <p>What is a CSS preprocessor?</p>
+    <p class="fragment">A CSS preprocessor is an extension of the CSS language. It adds developer-friendly features, and compiles (preprocesses) your sources down to valid CSS.</p>
+  </section>
+  <section>
+    <p>We are going to talk about the most popular ones today.</p>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h2>Sass</h2>
+    <p><em>Syntatically Awesome Style Sheets</em></p>
+  </section>
+  <section>
+    <p>Sass has been around the longest of the big preprocessors.</p>
+  </section>
+  <section>
+    <p>Sass is written in Ruby and integrates well with Rails.</p>
+  </section>
+  <section>
+    <p>The styles for this course website are written in Sass.</p>
+    <aside class="notes">
+      Sass is my personal favorite of the popular preprocessors.
+    </aside>
+  </section>
+  <section>
+    <pre><code data-trim>
+$text-color: #333333
+$selected-text-color: white
+
+$content-width: 600px
+$vertical-spacing: 3rem
+
+$font-family: "Lato", sans-serif
+$font-weight-light: 300
+$font-weight-heavy: 900
+
+html, body
+  font-family: $font-family
+  font-weight: $font-weight-light
+  font-size: 16px
+  line-height: 1.333
+  color: $text-color
+    </code></pre>
+    <aside class="notes">
+      Note the variables and bracketless/semicolonless syntax.
+    </aside>
+  </section>
+  <section>
+    <pre><code data-trim>
+section
+  background-color: khaki
+  article
+    padding: 20px
+
+// Compiles to:
+// section { background-color: khaki; }
+// section article { padding: 20px; }
+    </code></pre>
+    <aside class="notes">
+      Note the nesting and single-line comments.
+    </aside>
+  </section>
+  <section>
+    <pre><code data-trim>
+@function get-font-size($importance: 1)
+  @if $importance < 1
+    @return 1em
+  @else
+    @return (1em + 1em * ($importance - 1) * 0.75)
+
+h1
+  font-size: get-font-size(3)
+
+p
+  font-size: get-font-size(1)
+
+// Compiles to:
+// h1 { font-size: 2.5em; }
+// p { font-size: 1em; }
+    </code></pre>
+    <aside class="notes">
+      Note the function, and the if/else logic.
+    </aside>
+  </section>
+  <section>
+    <pre><code data-trim>
+$standard-radius: 2px
+
+@mixin corners($multiplier: 1)
+  border-radius: ($standard-radius * $multiplier)
+
+h1
+  @include corners
+
+button, a.button
+  @include corners(2)
+
+// Compiles to:
+// h1 { border-radius: 2px; }
+// button, a.button { border-radius: 4px; }
+    </code></pre>
+    <aside class="notes">
+      Note the mixin and optional parameter. Perfect for sets of commonly-used styles.
+    </aside>
+  </section>
+  <section>
+    <pre><code data-trim>
+p
+  background-color: transparentize(orangered, 0.9)
+
+// Compiles to:
+// p { background-color: rgba(255, 69, 0, 0.1); }
+    </code></pre>
+    <aside class="notes">
+      Note the built-in color functions.
+    </aside>
+  </section>
+  <section>
+    <pre><code data-trim>
+.main
+  display: inline-block
+  @media screen and (max-width: 320px)
+    display: block
+
+// Compiles to:
+// .main { display: inline-block; }
+// @media screen and (max-width: 320px) {
+//   .main { display: block; }
+// }
+    </code></pre>
+    <aside class="notes"></aside>
+  </section>
+  <section>
+    <p>And many, many more.</p>
+    <aside class="notes">
+      We are just scratching the surface. Sass has support for lists, loops, nested media queries.
+    </aside>
+  </section>
+</section>
+
+
+<!--
+
+Preprocessor review formula:
+
+  * background
+  * examples
+  * other features
+  * pros/cons
+
+ -->
