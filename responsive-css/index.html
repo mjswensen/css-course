@@ -50,19 +50,49 @@ description: All about responsive CSS.
       Recall our anatomy lesson for the definition a CSS rule: a selector accompanied by a set of properties and values.
     </aside>
   </section>
+  <section>
+    <p>See <a href="http://codepen.io/mjswensen/pen/OPEwZQ">this simple media query example.</a></p>
+  </section>
+  <section>
+    <p>Note that media queries do not affect the specificity of the selectors they contain.</p>
+    <aside class="notes">
+      Had we moved the media query above the rest of our CSS code in the previous example, it would have had no apparent effect since the selector inside of it had the same specificity as the default one. Remember that given two selectors of the same specificity, the one defined later wins.
+    </aside>
+  </section>
+  <section>
+    <p>A common use case is detecting screen width in your media queries, changing layout for different devices.</p>
+    <aside class="notes">
+      As we have just seen.
+    </aside>
+  </section>
+  <section>
+    <p>There are other useful media queries:</p>
+    <pre class="fragment"><code class="css" data-trim>
+@media (min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* Detecting screen resolution to provide high-DPI
+   * images for retina screens.
+   */
+}
+    </code></pre>
+    <pre class="fragment"><code class="css" data-trim>
+@media print {
+  /* Print-specific CSS for doing things like removing
+   * background colors, making content full-width, etc.
+   */
+}
+    </code></pre>
+    <aside class="notes">
+      You'll notice I didn't use the word "devices" in my definition of responsive css. That's because there are non-electronic ways to consume HTML pages, too! Also, the historical argument was that serif fonts are easier to read in print, while sans-serif fonts are easier to read on the screen. I suspect that with high-DPI screen popularity on the rise, we will see a lot more sans-serif fonts used for digital media.
+    </aside>
+  </section>
 </section>
 
 <!--
 
 Topics to cover:
 
-  - font sizing
-  - font types for screen vs. print, and why that may no longer be relevant
-  - print: you'll notice I didn't use the word "devices" in my definition of responsive css. That's because there are non-electronic ways to consume HTML pages, too!
-
+  - DevTools, example
   - performance
-  - media queries
   - mobile first
-  - screen resolution
 
 -->
