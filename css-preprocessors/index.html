@@ -21,7 +21,7 @@ description: An introduction to popular CSS preprocessors, how they work, and th
 <section>
   <section>
     <h2>Sass</h2>
-    <p><em>Syntatically Awesome Style Sheets</em></p>
+    <aside class="notes">"Sass" stands for "Syntatically Awesome Style Sheets."</aside>
   </section>
   <section>
     <p>Sass has been around the longest of the big preprocessors.</p>
@@ -247,6 +247,38 @@ button, a.button { border-radius: 4px; }
     <p>(<a href="http://lesscss.org/">Less homepage</a>)</p>
   </section>
 </section>
+
+<section>
+  <section>
+    <h2>Stylus</h2>
+  </section>
+  <section>
+    <p>Stylus is the new kid on the block, with the first commit in December 2010.</p>
+  </section>
+  <section>
+    <p>It is also implemented in JavaScript.</p>
+  </section>
+  <section>
+    <p>Stylus may not have the same depth of features as Sass and Less, but the core set is there.</p>
+  </section>
+  <section>
+    <pre><code class="stylus" data-trim>
+body
+  font 12px Helvetica, Arial, sans-serif
+    </code></pre>
+    <p>Compiles to:</p>
+    <pre><code class="css" data-trim>
+body { font: 12px Helvetica, Arial, sans-serif; }
+    </code></pre>
+    <aside class="notes">
+      Note the missing braces, semicolons, and even colons!
+    </aside>
+  </section>
+  <section>
+    <p>Check out the <a href="http://learnboost.github.io/stylus/">Stylus homepage</a> for more.</p>
+  </section>
+</section>
+
 <!--
 
 Preprocessor review formula:
