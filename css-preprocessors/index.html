@@ -36,7 +36,7 @@ description: An introduction to popular CSS preprocessors, how they work, and th
     </aside>
   </section>
   <section>
-    <pre><code data-trim>
+    <pre><code class="scss" data-trim>
 $text-color: #333333
 $selected-text-color: white
 
@@ -59,22 +59,23 @@ html, body
     </aside>
   </section>
   <section>
-    <pre><code data-trim>
+    <pre><code class="scss" data-trim>
 section
   background-color: khaki
   article
     padding: 20px
-
-// Compiles to:
-// section { background-color: khaki; }
-// section article { padding: 20px; }
+    </code></pre>
+    <p>Compiles to:</p>
+    <pre><code class="css" data-trim>
+section { background-color: khaki; }
+section article { padding: 20px; }
     </code></pre>
     <aside class="notes">
       Note the nesting and single-line comments.
     </aside>
   </section>
   <section>
-    <pre><code data-trim>
+    <pre><code class="scss" data-trim>
 @function get-font-size($importance: 1)
   @if $importance < 1
     @return 1em
@@ -86,17 +87,18 @@ h1
 
 p
   font-size: get-font-size(1)
-
-// Compiles to:
-// h1 { font-size: 2.5em; }
-// p { font-size: 1em; }
+    </code></pre>
+    <p>Compiles to:</p>
+    <pre><code class="css" data-trim>
+h1 { font-size: 2.5em; }
+p { font-size: 1em; }
     </code></pre>
     <aside class="notes">
       Note the function, and the if/else logic.
     </aside>
   </section>
   <section>
-    <pre><code data-trim>
+    <pre><code class="scss" data-trim>
 $standard-radius: 2px
 
 @mixin corners($multiplier: 1)
@@ -107,39 +109,46 @@ h1
 
 button, a.button
   @include corners(2)
-
-// Compiles to:
-// h1 { border-radius: 2px; }
-// button, a.button { border-radius: 4px; }
+    </code></pre>
+    <p>Compiles to:</p>
+    <pre><code class="css" data-trim>
+h1 { border-radius: 2px; }
+button, a.button { border-radius: 4px; }
     </code></pre>
     <aside class="notes">
       Note the mixin and optional parameter. Perfect for sets of commonly-used styles.
     </aside>
   </section>
   <section>
-    <pre><code data-trim>
+    <pre><code class="scss" data-trim>
 p
   background-color: transparentize(orangered, 0.9)
-
-// Compiles to:
-// p { background-color: rgba(255, 69, 0, 0.1); }
+  color: mix(orangered, black)
+    </code></pre>
+    <p>Compiles to:</p>
+    <pre><code class="css" data-trim>
+p {
+  background-color: rgba(255, 69, 0, 0.1);
+  color: #7f2200;
+}
     </code></pre>
     <aside class="notes">
       Note the built-in color functions.
     </aside>
   </section>
   <section>
-    <pre><code data-trim>
+    <pre><code class="scss" data-trim>
 .main
   display: inline-block
   @media screen and (max-width: 320px)
     display: block
-
-// Compiles to:
-// .main { display: inline-block; }
-// @media screen and (max-width: 320px) {
-//   .main { display: block; }
-// }
+    </code></pre>
+    <p>Compiles to:</p>
+    <pre><code class="css" data-trim>
+.main { display: inline-block; }
+@media screen and (max-width: 320px) {
+  .main { display: block; }
+}
     </code></pre>
     <aside class="notes"></aside>
   </section>
