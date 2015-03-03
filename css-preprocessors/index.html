@@ -60,7 +60,7 @@ html, body
   </section>
   <section>
     <pre><code class="scss" data-trim>
-section
+section // Main section
   background-color: khaki
   article
     padding: 20px
@@ -154,13 +154,99 @@ p {
   </section>
   <section>
     <p>And many, many more.</p>
+    <p>(<a href="http://sass-lang.com/">Sass homepage</a>)</p>
     <aside class="notes">
       We are just scratching the surface. Sass has support for lists, loops, nested media queries.
     </aside>
   </section>
 </section>
 
+<section>
+  <section>
+    <h2>Less</h2>
+  </section>
+  <section>
+    <p>Less has been around since 2009.</p>
+  </section>
+  <section>
+    <p>It is implemented in JavaScript.</p>
+    <p class="fragment">Which means it can run on the server or in the browser.</p>
+    <aside class="notes">
+      One might use the browser implementation for development purposes or for making quick prototypes. The server compiler should always be used for serious applications in production.
+    </aside>
+  </section>
+  <section>
+    <pre><code class="less" data-trim>
+@text-color: #333333;
+@selected-text-color: white;
 
+@content-width: 600px;
+@vertical-spacing: 3rem;
+
+@font-family: "Lato", sans-serif;
+@font-weight-light: 300;
+@font-weight-heavy: 900;
+
+html, body {
+  font-family: @font-family;
+  font-weight: @font-weight-light;
+  font-size: 16px;
+  line-height: 1.333;
+  color: @text-color;
+}
+    </code></pre>
+    <aside class="notes">
+      Note the variables and @-sign syntax.
+    </aside>
+  </section>
+  <section>
+    <pre><code class="less" data-trim>
+section { // Main section
+  background-color: khaki;
+  article {
+    padding: 20px;
+  }
+}
+    </code></pre>
+    <p>Compiles to:</p>
+    <pre><code class="css" data-trim>
+section { background-color: khaki; }
+section article { padding: 20px; }
+    </code></pre>
+    <aside class="notes">
+      Note the nesting and single-line comments.
+    </aside>
+  </section>
+  <section>
+    <pre><code class="less" data-trim>
+@standard-radius: 2px;
+
+.corners(@multiplier: 1) {
+  border-radius: (@standard-radius * @multiplier);
+}
+
+h1 {
+  .corners;
+}
+
+button, a.button {
+  .corners(2);
+}
+    </code></pre>
+    <p>Compiles to:</p>
+    <pre><code class="css" data-trim>
+h1 { border-radius: 2px; }
+button, a.button { border-radius: 4px; }
+    </code></pre>
+    <aside class="notes">
+      Note the mixin and optional parameter. Perfect for sets of commonly-used styles. Note that Less doesn't support functions in the same way that Sass does.
+    </aside>
+  </section>
+  <section>
+    <p>We're just scratching the surface.</p>
+    <p>(<a href="http://lesscss.org/">Less homepage</a>)</p>
+  </section>
+</section>
 <!--
 
 Preprocessor review formula:
