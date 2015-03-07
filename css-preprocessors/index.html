@@ -76,22 +76,31 @@ section article { padding: 20px; }
   </section>
   <section>
     <pre><code class="scss" data-trim>
-@function get-font-size($importance: 1)
+@function hierarchy($importance: 1)
   @if $importance < 1
-    @return 1em
+    @return 1rem
   @else
-    @return (1em + 1em * ($importance - 1) * 0.75)
+    @return (1rem + 1rem * ($importance - 1) * 0.75)
 
 h1
-  font-size: get-font-size(3)
+  font-size: hierarchy(4)
+  margin-bottom: hierarchy(2)
 
 p
-  font-size: get-font-size(1)
+  font-size: hierarchy(1)
+  padding: hierarchy(2)
     </code></pre>
     <p>Compiles to:</p>
     <pre><code class="css" data-trim>
-h1 { font-size: 2.5em; }
-p { font-size: 1em; }
+h1 {
+  font-size: 3.25rem;
+  margin-bottom: 1.75rem;
+}
+
+p {
+  font-size: 1rem;
+  padding: 1.75rem;
+}
     </code></pre>
     <aside class="notes">
       Note the function, and the if/else logic.
