@@ -34,6 +34,7 @@ description: An overview of various performance considerations surrounding CSS a
       <li class="fragment">Hiding a DOM node with <code>display: none;</code></li>
       <li class="fragment">Resizing the window, changing font-size, scrolling</li>
     </ul>
+    <aside class="notes">Though "display: none;" causes a reflow, "visibility: hidden;" does not.</aside>
   </section>
   <section>
     <p><strong>Practical tip:</strong> If you are going to change elements' styles, try to do it in batch to minimize the number of reflows.</p>
@@ -59,17 +60,18 @@ description: An overview of various performance considerations surrounding CSS a
   </section>
   <section>
     <p>3D transforms get elements on their own compositing layers and don't require a reflow or a repaint.</p>
+    <p class="fragment">Sometimes the GPU can help out with these, too.</p>
+    <aside class="notes">This can come with a startup cost, however.</aside>
   </section>
   <section>
     <p>An awesome resource: <a href="http://csstriggers.com/">CSS Triggers</a> by <a href="http://aerotwist.com/">Paul Lewis</a>.</p>
+    <aside class="notes">The bottom line: certain properties are more expensive to animate than others.</aside>
   </section>
 </section>
 
 <!--
 
-The biggest issues with front-end performance is when you are using JS to manipulate your HTML or CSS.
-
-Topics:
+Other topics:
 
 - GPU acceleration
   - Canvas
@@ -77,8 +79,11 @@ Topics:
 
 TODO:
 
-Add sources links at end of slides:
-
-- https://dl.dropboxusercontent.com/u/39519/talks/cssperf/index.html (Paul Irish)
+* CSS usually outperforms jQuery. Show transit plugin. Include Ben's caveat.
+* Show examples of:
+  * The timeline view (Chrome) and chrome://tracing
+  * Dropped framerate due to reflows
+* Add sources links at end of slides:
+  * https://dl.dropboxusercontent.com/u/39519/talks/cssperf/index.html (Paul Irish)
 
 -->
