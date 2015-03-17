@@ -1,0 +1,84 @@
+---
+layout: presentation
+theme: accent7
+title: Performance
+description: An overview of various performance considerations surrounding CSS and the browser's rendering processes.
+---
+
+<section>
+  <h1>Front-end performance</h1>
+  <aside class="notes">The reason we are calling this session "front-end performance" instead of "CSS performance" is that we are going to take a step back and look at the bigger picture.</aside>
+</section>
+
+<section>
+  <section>
+    <h2>How does the browser display pages?</h2>
+    <p>
+      <span class="fragment">Layout</span>
+      <span class="fragment">→ Paint</span>
+      <span class="fragment">→ Composite</span>
+    </p>
+    <aside class="notes">This is the simplified, generalized version, of course.</aside>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h2>Layout</h2>
+    <iframe width="420" height="315" src="https://www.youtube.com/embed/ZTnIxIA5KGw" frameborder="0" allowfullscreen></iframe>
+  </section>
+  <section>
+    <p>What types of things trigger a layout change (reflow)?</p>
+    <ul>
+      <li class="fragment">Adding, removing, updating DOM nodes</li>
+      <li class="fragment">Hiding a DOM node with <code>display: none;</code></li>
+      <li class="fragment">Resizing the window, changing font-size, scrolling</li>
+    </ul>
+  </section>
+  <section>
+    <p><strong>Practical tip:</strong> If you are going to change elements' styles, try to do it in batch to minimize the number of reflows.</p>
+  </section>
+  <section>
+    <p><strong>Practical tip:</strong> <code>cloneNode()</code> an element, make changes to the copy, and swap it for the original.</p>
+  </section>
+  <section>
+    <p><strong>Practical tip:</strong> If you have to make lots of changes, hide the element via <code>display: none;</code>, make your changes, and then unhide it (triggering only two reflows).</p>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h2>Paint, composite</h2>
+  </section>
+  <section>
+    <p>Performing a re-paint and a re-composite only is faster than re-doing all three steps.</p>
+    <aside class="notes">That's why we focus so much on avoiding reflows where possible.</aside>
+  </section>
+  <section>
+    <p>Ideally, we can skip re-painting as well, and re-composite only. This is typically quite fast.</p>
+  </section>
+  <section>
+    <p>3D transforms get elements on their own compositing layers and don't require a reflow or a repaint.</p>
+  </section>
+  <section>
+    <p>An awesome resource: <a href="http://csstriggers.com/">CSS Triggers</a> by <a href="http://aerotwist.com/">Paul Lewis</a>.</p>
+  </section>
+</section>
+
+<!--
+
+The biggest issues with front-end performance is when you are using JS to manipulate your HTML or CSS.
+
+Topics:
+
+- GPU acceleration
+  - Canvas
+  - WebGL
+
+TODO:
+
+Add sources links at end of slides:
+
+- https://dl.dropboxusercontent.com/u/39519/talks/cssperf/index.html (Paul Irish)
+
+-->
