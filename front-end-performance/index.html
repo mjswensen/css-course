@@ -69,21 +69,41 @@ description: An overview of various performance considerations surrounding CSS a
   </section>
 </section>
 
-<!--
+<section>
+  <section>
+    <h2>Other performance considerations</h2>
+  </section>
+  <section>
+    <p>Selector performance is probably not a bottleneck anymore.</p>
+    <aside class="notes">
+      Write good, meaningful selectors. Browsers have been optimizing the rendering engine to handle complex selectors. There is lower-hanging fruit elsewhere.
+    </aside>
+  </section>
+  <section>
+    <p>CSS animations usually outperform jQuery animations.</p>
+    <aside class="notes">Ben Dilts, our CTO and founder, has found a few cases where using JS and requestAnimationFrame() is more performant than the CSS animation equivalent. Weird. Also, if you don't want to move away from jQuery animations, there are plugins like jquery.transit that may help.</aside>
+  </section>
+</section>
 
-Other topics:
+<section>
+  <section>
+    <h2>Debugging performance</h2>
+    <ul>
+      <li>Chrome DevTools: timeline view</li>
+      <li>chrome://tracing (A.K.A. about:tracing)</li>
+    </ul>
+    <aside class="notes">Let's take a look at these tools.</aside>
+  </section>
+</section>
 
-- GPU acceleration
-  - Canvas
-  - WebGL
-
-TODO:
-
-* CSS usually outperforms jQuery. Show transit plugin. Include Ben's caveat.
-* Show examples of:
-  * The timeline view (Chrome) and chrome://tracing
-  * Dropped framerate due to reflows
-* Add sources links at end of slides:
-  * https://dl.dropboxusercontent.com/u/39519/talks/cssperf/index.html (Paul Irish)
-
--->
+<section>
+  <section>
+    <h2>Sources</h2>
+    <ul>
+      <li><a href="http://calendar.perfplanet.com/2011/css-selector-performance-has-changed-for-the-better/">CSS Selector Performance has changed! (Nicole Sullivan)</a></li>
+      <li><a href="https://dl.dropboxusercontent.com/u/39519/talks/cssperf/index.html">CSS PERFORMANCE (Paul Irish)</a></li>
+      <li><a href="http://csstriggers.com/">csstriggers.com (Paul Lewis)</a></li>
+      <li><a href="http://www.html5rocks.com/en/search?q=performance">html5rocks.com (multiple authors)</a></li>
+    </ul>
+  </section>
+</section>
