@@ -21,17 +21,182 @@ description: A look at various CSS frameworks, methodologies, and architecture p
     </aside>
   </section>
   <section>
+    <p>Another popular example is <a href="http://foundation.zurb.com/">Foundation</a>.</p>
+  </section>
+  <section>
     <p><a href="http://compass-style.org/">Compass</a> is another example, except that it operates at the preprocessor level (Sass).</p>
+  </section>
+  <section>
+    <p>Lots more...</p>
+    <aside class="notes">
+      If you are building a basic content website, you really don't ever have to write CSS (unless, of course, you enjoy it!).
+    </aside>
   </section>
 </section>
 
+<section>
+  <h2>Architecture paradigms</h2>
+</section>
 
+<section>
+  <section>
+    <h3>OOCSS</h3>
+    <p>Object-oriented CSS</p>
+  </section>
+  <section>
+    <p>OOCSS was originally developed by <a href="http://www.stubbornella.org/content/">Nicole Sullivan</a>, and is a <a href="https://github.com/stubbornella/oocss/wiki">paradigm</a>, a <a href="https://github.com/stubbornella/oocss">framework</a>, and even has a <a href="https://github.com/stubbornella/oocss-code-standards">CSS coding standard</a>.</p>
+  </section>
+  <section>
+    <p>There are two main principles of OOCSS:</p>
+    <ol>
+      <li class="fragment">Separate sturcture and skin</li>
+      <li class="fragment">Separate container and content</li>
+    </ol>
+    <p class="fragment">The emphasis is on code re-use, semantics, and predictability.</p>
+  </section>
+  <section>
+    <p>Non-OOCSS example:</p>
+    <pre><code data-trim>
+.red-button {
+  border: 1px solid darkgray;
+  color: white;
+  border-radius: 4px;
+  background-color: red;
+}
 
-<!--
+.blue-button {
+  border: 1px solid darkgray;
+  color: white;
+  border-radius: 4px;
+  background-color: blue;
+}
+    </code></pre>
+    <pre><code class="html" data-trim>
+&lt;button class=&quot;button-blue&quot;&gt;Cancel&lt;/button&gt;
+&lt;button class=&quot;button-red&quot;&gt;Delete&lt;/button&gt;
+    </code></pre>
+  </section>
+  <section>
+    <p>And the OOCSS equivalent:</p>
+    <pre><code data-trim>
+.button {
+  border: 1px solid darkgray;
+  color: white;
+  border-radius: 4px;
+}
 
-TODO:
+.button.dangerous {
+  background-color: red;
+}
 
-- Add a few more examples of frameworks.
-- Add sections about architecture paradigms.
+.button.safe {
+  background-color: blue;
+}
+    </code></pre>
+    <pre><code class="html" data-trim>
+&lt;button class=&quot;safe button&quot;&gt;Cancel&lt;/button&gt;
+&lt;button class=&quot;dangerous button&quot;&gt;Delete&lt;/button&gt;
+    </code></pre>
+  </section>
+</section>
 
--->
+<section>
+  <section>
+    <h3>SMACSS</h3>
+    <p>Scalable and modular architecture for CSS</p>
+  </section>
+  <section>
+    <p>SMACSS is contained in an eBook written by <a href="http://snook.ca/">Jonathan Snook</a>, but some of the content he makes available for free on the <a href="https://smacss.com/">SMACSS website</a>.</p>
+    <aside class="notes">
+      Let's take a look at some of the core principles of SMACSS on the SMACSS website.
+    </aside>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>BEM</h3>
+    <p>Block, element, modifier</p>
+  </section>
+  <section>
+    <p>BEM was developed by <a href="https://www.yandex.com/">Yandex</a>.</p>
+  </section>
+  <section>
+    <p><a href="https://en.bem.info/">BEM</a> is a paradigm for structuring front-end applications, CSS included.</p>
+    <aside class="notes">
+      Let's take a look at some of the core principles of BEM on the BEM website.
+    </aside>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>Atomic CSS</h3>
+  </section>
+  <section>
+    <p>As the name suggests, Atomic CSS is the practice of composing styles from small "atoms."</p>
+  </section>
+  <section>
+    <p>For example:</p>
+    <pre><code class="less" data-trim>
+@std-margin: 16px;
+
+.mt-1 { margin-top: @std-margin; }
+.mr-1 { margin-right: @std-margin; }
+.mt-2 { margin-top: (2 * @std-margin); }
+.ov-h { overflow: hidden; }
+.d-b {  display: block; }
+.va-m {  vertical-align: middle; }
+.fl-st { float: @float-start; }
+.fl-nd { float: @float-end; }
+.fw-b {  font-weight: bold; }
+.fs-i {  font-style: italic; }
+    </code></pre>
+    <pre><code class="html" data-trim>
+&lt;li class=&quot;mt-2 ov-h&quot;&gt;
+  ...
+  &lt;div class=&quot;executive-bio ov-h&quot;&gt;
+    &lt;a ... class=&quot;fl-nd&quot;&gt;
+      &lt;img ... /&gt;
+    &lt;/a&gt;
+    &lt;h3 class=&quot;fw-b&quot;&gt;Karl Sun&lt;/h3&gt;
+    &lt;h4 class=&quot;fs-i&quot;&gt;CEO and Co-founder&lt;/h4&gt;
+  &lt;/div&gt;
+&lt;/li&gt;
+    </code></pre>
+  </section>
+  <section>
+    <p>Pros:</p>
+    <ul>
+      <li>Small code size (minimal CSS bloat)</li>
+      <li>Possible for savvy CMS users to use</li>
+      <li>Low-maintenance</li>
+    </ul>
+  </section>
+  <section>
+    <p>Cons:</p>
+    <ul>
+      <li>Poor readability</li>
+      <li>Not semantic</li>
+      <li>Somewhat similar to using the <code>style</code> attribute</li>
+    </ul>
+  </section>
+  <section>
+    <p><a href="http://www.almamadsen.com/">Alma Madsen</a> and I co-authored an <a href="https://www.lucidchart.com/techblog/2014/01/31/atomic-css-tool-set/">in-depth article about atomic CSS</a>.</p>
+  </section>
+</section>
+
+<section>
+  <p><strong>The end!</strong> Thanks for coming!</p>
+  <ul class="fragment">
+    <li>Web: <a href="http://mjswensen.com">mjswensen.com</a></li>
+    <li>Twitter: <a href="https://twitter.com/mjswensen">@mjswensen</a></li>
+    <li>LinkedIn: <a href="https://www.linkedin.com/in/mjswensen">linkedin.com/in/mjswensen</a></li>
+    <li>Lucid Software:
+      <ul>
+        <li><a href="https://www.golucid.co/">golucid.co</a></li>
+        <li><a href="https://www.lucidchart.com">lucidchart.com</a></li>
+        <li><a href="https://www.lucidpress.com">lucidpress.com</a></li>
+      </ul>
+  </ul>
+</section>
